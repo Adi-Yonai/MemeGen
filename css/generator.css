@@ -17,6 +17,7 @@ canvas {
     padding-left: 30px;
     padding-right: 30px;
     height: 100vh;
+    border-radius: 10px;
 }
 
 .editor {

@@ -14,24 +14,22 @@
     <header class="flex-container">
         <img src="img/LOGO.png" alt="Logo" class="logo">
         <nav>
-            <button>memes</button>
-            <button>gallery</button>
-            <button>about</button>
+            <button class="navBtn">
+                <a href="generator.html">
+                    memes
+                </a>
+            </button>
+            <button class="navBtn">
+                <a href="index.html">
+                    gallery
+                </a>
+            </button>
         </nav>
     </header>
-    <div class="filter-box">
-        <a href="generator.html">Open meme editor</a>
-        <div class="inputs">
-            <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
-            
-            <button class="btn" onclick="uploadImg()">Upload Image from Canvas</button>
-            
-            <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
-            <p class="user-msg"></p>
-            <div class="share-container"></div>
-          </div>
-        <label for="search">Search here</label>
-        <input type="text" class="search-box" value="Enter search keyword" id="search">
+    <div>
+        <button class="navBtn"  id="padBtn">
+            <a href="generator.html">Open meme editor</a>
+        </button>
     </div>
     <section class="gallery grid-container">
     </section>

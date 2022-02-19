@@ -12,15 +12,24 @@
     <header class="flex-container">
             <img src="img/LOGO.png" alt="Logo" class="logo">
         <nav>
-            <button>memes</button>
-            <button>gallery</button>
-            <button>about</button>
+            <button class="navBtn">
+                <a href="generator.html">
+                    memes
+                </a>
+            </button>
+            <button class="navBtn">
+                <a href="index.html">
+                    gallery
+                </a>
+            </button>
         </nav>
     </header>
     <div class="main-container flex-container">
         <div class="canvas-container">
             <div>
-                <a href="index.html">&#60 Back to Gallery</a>
+                <button class="navBtn">    
+                    <a href="index.html">&#60 Back to Gallery</a>
+                </button>
             </div>
             <div class="canvas-box">
                 <canvas width="750" height="566"></canvas>
@@ -29,7 +38,10 @@
         <div class="editor-container">
             <div class="editor-header flex-container">
                 <h2>Edit Text Lines</h2>
-                <ul class="button-container">
+                <ul class="button-container flex-container">
+                    <li >
+                        <button onclick="toggleTextBox()" id="togggle text box">Toggle Textbox Borders</button>
+                    </li>
                     <li >
                         <button onclick="addLine()" title="add line">+</button>
                     </li>
@@ -43,12 +55,11 @@
             <div class="editor">
                 <ul class="editor-menu">
                     <li class="dropdown">
-                        <button class="dropbtn">Dropdown</button>
-                        <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
-                        </div>
+                        <select name="fonts-box" onchange="changeFont(event)">
+                                <option>Impact</option>
+                                <option>Arial</option>
+                                <option>Verdana</option>
+                            </select>
                     </li>
                     <li> 
                         <label for="quantity">Font Size:</label>
@@ -56,34 +67,34 @@
                       </li>
                     <li>|</li>
                     <li>
-                        <img src="/img/ICONS/align-to-left.png" class="align" title="align left" onclick="alignText('left')">
+                        <button onclick="alignText('left')">
+                            <img src="/img/ICONS/align-to-left.png" class="align" title="align left" >
+                        </button>
                     </li>
                     <li>
-                        <img src="/img/ICONS/center-text-alignment.png" class="align" title="align center" onclick="alignText('center')">
+                        <button onclick="alignText('center')">
+                            <img src="/img/ICONS/center-text-alignment.png" class="align" title="align center" >
+                        </button>
                     </li>
                     <li>
-                        <img src="/img/ICONS/align-to-right.png" class="align" title="align right" onclick="alignText('right')">
+                        <button onclick="alignText('right')">
+                            <img src="/img/ICONS/align-to-right.png" class="align" title="align right" >
+                        </button>
                     </li>
                     <li>|</li>
-                    <li>A</li>
                     <li>
                         <input type="color" id="color-pick" onchange="changeColor(event)">
                     </li>
                 </ul>    
                 <input type="text" class="text-input" onclick="focusText(event)">
             </div>
-            <ul class="sticker-box">
-                <li>A+</li>
-                    <li>A-</li>
-                    <li>|</li>
-                    <li>right</li>
-                    <li>center</li>
-                    <li>left</li>
-                    <li>|</li>
-                    <li>A</li>
-                    <li>brush</li>
-            </ul>
-            <button class="share">share</button>
+            <div class="inputs">
+                <button class="dwnBtn">
+                    <a href="#" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
+                </button>
+                <p class="user-msg"></p>
+                <div class="share-container"></div>
+            </div>
             </div>
         </div>
         <div class="utility-space"></div>

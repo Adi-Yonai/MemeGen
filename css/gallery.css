@@ -23,3 +23,7 @@ img{
     width: 100%;
     height: 100%;
 }
+
+#padBtn {
+    margin-bottom: 5px;
+}

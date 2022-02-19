@@ -6,8 +6,10 @@ var gCtx;
 var gElInput;
 var gElSize;
 var gElColor;
+var gElFont;
 var gInput;
 var gElUtilSpace;
+var gIsBoxShown = true;
 var gImg;
 var gChosenLine = 0;
 var gLines = [{}];
@@ -22,6 +24,7 @@ function onInit() {
         text: "",
         color: "#000000",
         size: 30,
+        font: "Impact",
         align: "left"
     };
     elContainer = document.querySelector(".canvas-container");
@@ -40,7 +43,6 @@ function addListeners() {
     gElInput.addEventListener("change", addText )
     addMouseListeners()
     addTouchListeners()
-    //gElInput.addEventListener('change', updateValue);
     window.addEventListener('resize', () => {
         resizeCanvas();
         renderCanvas();
@@ -62,13 +64,14 @@ function addTouchListeners() {
 function renderCanvas() {
     gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height);
     gCtx.drawImage(gImg,0,0, gElCanvas.width, gElCanvas.width);
-    drawLines();
     renderText();
+    if (gIsBoxShown) drawLines();
 }
 
 function resizeCanvas() {
-    gElCanvas.width = 0.95*elContainer.offsetWidth;
-    gElCanvas.height = 0.95*elContainer.offsetWidth;
+    console.log()
+    gElCanvas.width = Math.min( 0.95*elContainer.offsetWidth, 0.9*window.innerHeight);
+    gElCanvas.height = gElCanvas.width;
 }
 
 function checkParam() {
@@ -138,7 +141,7 @@ function onMove(ev) {
 
 function onUp() {
     gIsClicked = false;
-    document.body.style.cursor = 'grab';
+    document.body.style.cursor = 'default';
 }
 
 
@@ -153,6 +156,7 @@ function addLine() {
         text: "",
         color: "#000000",
         size: 30,
+        font: "Impact",
         align: "left"
     };
     if (gChosenLine === 0) gLines[gChosenLine].pos = 50
@@ -183,7 +187,7 @@ function delLine () {
 
 function renderText() {
     gLines.forEach((element) => {
-        gCtx.font = `${element.size}px san serif`;
+        gCtx.font = `${element.size}px ${element.font}`;
         gCtx.fillStyle = element.color;
         gCtx.textAlign = element.align;
         if (element.align=== "left"){
@@ -202,9 +206,20 @@ function focusText() {
     gElInput.value = gLines[gChosenLine].text;
     gElSize.value = gLines[gChosenLine].size;
     gElColor.value = gLines[gChosenLine].color;
+    gElColor.value = gLines[gChosenLine].color;
 }
 
 function alignText(alignment) {
     gLines[gChosenLine].align = alignment;
+    renderCanvas();
+}
+
+function changeFont(ev) {
+    console.log(ev.target.value);
+    gLines[gChosenLine].font = ev.target.value;
+}
+
+function toggleTextBox(ev) {
+    gIsBoxShown = !gIsBoxShown;
     renderCanvas();
 }
