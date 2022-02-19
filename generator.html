@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/generator.css">
+</head>
+<body onload="onInit()">
+    <header class="flex-container">
+            <img src="img/LOGO.png" alt="Logo" class="logo">
+        <nav>
+            <button>memes</button>
+            <button>gallery</button>
+            <button>about</button>
+        </nav>
+    </header>
+    <div class="main-container flex-container">
+        <div class="canvas-container">
+            <div>
+                <a href="gallery.html">&#60 Back to Gallery</a>
+            </div>
+            <canvas width="750" height="566"></canvas>
+        </div>
+        <div class="editor-container">
+            <div class="editor-header flex-container">
+                <h2>Edit Text Lines</h2>
+                <ul class="button-container">
+                    <li >
+                        <button onclick="addLine()" title="add line">+</button>
+                    </li>
+                    <li>
+                        <button onclick="delLine()">
+                            <img src="/img/ICONS/trash.png" class="align" title="delete current line">
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="editor">
+                <ul class="editor-menu">
+                    <li class="dropdown">
+                        <button class="dropbtn">Dropdown</button>
+                        <div class="dropdown-content">
+                          <a href="#">Link 1</a>
+                          <a href="#">Link 2</a>
+                          <a href="#">Link 3</a>
+                        </div>
+                    </li>
+                    <li> 
+                        <label for="quantity">Font Size:</label>
+                        <input type="number" id="font-size" name="font-size" value="30"  min="10" max="100" onchange="changeFontSize(event)">
+                      </li>
+                    <li>|</li>
+                    <li>
+                        <img src="/img/ICONS/align-to-left.png" class="align" title="align left">
+                    </li>
+                    <li>
+                        <img src="/img/ICONS/center-text-alignment.png" class="align" title="align center">
+                    </li>
+                    <li>
+                        <img src="/img/ICONS/align-to-right.png" class="align" title="align right">
+                    </li>
+                    <li>|</li>
+                    <li>A</li>
+                    <li>
+                        <input type="color" id="color-pick" onchange="changeColor(event)">
+                    </li>
+                </ul>    
+                <input type="text" class="text-input" onclick="focusText(event)">
+            </div>
+            <ul class="sticker-box">
+                <li>A+</li>
+                    <li>A-</li>
+                    <li>|</li>
+                    <li>right</li>
+                    <li>center</li>
+                    <li>left</li>
+                    <li>|</li>
+                    <li>A</li>
+                    <li>brush</li>
+            </ul>
+            <button class="share">share</button>
+            </div>
+        </div>
+        <div class="utility-space"></div>
+    <script src="js/main.js"></script>
+    <script src="js/generator.js"></script>
+</body>
+</html>

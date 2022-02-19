@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+.gallery {
+    grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+    margin: 0;
+    grid-gap: 10px;
+    width: 95vw;
+}
+.item{
+
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+    justify-self: stretch;
+    align-self: stretch;
+    aspect-ratio: 1;
+}
+
+img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}

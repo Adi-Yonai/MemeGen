@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/generator.css">
+
+</head>
+<body onload="onInit()">
+    <header class="flex-container">
+        <img src="img/LOGO.png" alt="Logo" class="logo">
+        <nav>
+            <button>memes</button>
+            <button>gallery</button>
+            <button>about</button>
+        </nav>
+    </header>
+    <div class="filter-box">
+        <a href="generator.html">Open meme editor</a>
+        <div class="inputs">
+            <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
+            
+            <button class="btn" onclick="uploadImg()">Upload Image from Canvas</button>
+            
+            <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
+            <p class="user-msg"></p>
+            <div class="share-container"></div>
+          </div>
+        <label for="search">Search here</label>
+        <input type="text" class="search-box" value="Enter search keyword" id="search">
+    </div>
+    <section class="gallery grid-container">
+    </section>
+            </div>
+        </body>
+        </html>      
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+</html>
