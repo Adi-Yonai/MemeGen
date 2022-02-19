@@ -21,7 +21,8 @@ function onInit() {
         pos: 50,
         text: "",
         color: "#000000",
-        size: 30
+        size: 30,
+        align: "left"
     };
     elContainer = document.querySelector(".canvas-container");
     gElCanvas = document.querySelector('canvas');
@@ -66,8 +67,8 @@ function renderCanvas() {
 }
 
 function resizeCanvas() {
-    gElCanvas.width = 0.9*elContainer.offsetWidth;
-    gElCanvas.height = 0.9*elContainer.offsetWidth;
+    gElCanvas.width = 0.95*elContainer.offsetWidth;
+    gElCanvas.height = 0.95*elContainer.offsetWidth;
 }
 
 function checkParam() {
@@ -84,7 +85,6 @@ function checkParam() {
 
 function addText(ev) {
     gLines[gChosenLine].text = ev.target.value;
-    console.log(gLines);
     renderCanvas();
 }
 
@@ -149,11 +149,14 @@ function checkLine(clickedPos) {
 function addLine() {
     gChosenLine = gLines.length;
     gLines[gChosenLine]= {
-        pos: 500,
+        pos: 0.5*gElCanvas.height,
         text: "",
         color: "#000000",
-        size: 30
+        size: 30,
+        align: "left"
     };
+    if (gChosenLine === 0) gLines[gChosenLine].pos = 50
+    if (gChosenLine === 1) gLines[gChosenLine].pos = gElCanvas.height-10
     gElInput.value = "";
     resizeCanvas();
     renderCanvas();
@@ -182,13 +185,26 @@ function renderText() {
     gLines.forEach((element) => {
         gCtx.font = `${element.size}px san serif`;
         gCtx.fillStyle = element.color;
-        gCtx.fillText(element.text, 10, element.pos);
+        gCtx.textAlign = element.align;
+        if (element.align=== "left"){
+            gCtx.fillText(element.text, 10, element.pos);
+        }
+        if (element.align=== "center"){
+            gCtx.fillText(element.text, 0.5*gElCanvas.width, element.pos);
+        }
+        if (element.align=== "right"){
+            gCtx.fillText(element.text, gElCanvas.width-10, element.pos);
+        }
     })
 }
 
 function focusText() {
-    console.log(gLines[gChosenLine]);
     gElInput.value = gLines[gChosenLine].text;
     gElSize.value = gLines[gChosenLine].size;
     gElColor.value = gLines[gChosenLine].color;
+}
+
+function alignText(alignment) {
+    gLines[gChosenLine].align = alignment;
+    renderCanvas();
 }

@@ -60,3 +60,24 @@ input {
 .align {
     max-width: 20px;
 }
+
+@media screen and (max-width: 740px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .editor-container {
+        height: auto;
+        flex-grow: 1;
+    }
+
+    .sticker-box {
+        display: none;
+    }
+    
+    .canvas-container {
+        width: 100vw;
+    }
+
+}

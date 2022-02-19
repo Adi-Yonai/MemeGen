@@ -20,9 +20,11 @@
     <div class="main-container flex-container">
         <div class="canvas-container">
             <div>
-                <a href="gallery.html">&#60 Back to Gallery</a>
+                <a href="index.html">&#60 Back to Gallery</a>
             </div>
-            <canvas width="750" height="566"></canvas>
+            <div class="canvas-box">
+                <canvas width="750" height="566"></canvas>
+            </div>
         </div>
         <div class="editor-container">
             <div class="editor-header flex-container">
@@ -54,13 +56,13 @@
                       </li>
                     <li>|</li>
                     <li>
-                        <img src="/img/ICONS/align-to-left.png" class="align" title="align left">
+                        <img src="/img/ICONS/align-to-left.png" class="align" title="align left" onclick="alignText('left')">
                     </li>
                     <li>
-                        <img src="/img/ICONS/center-text-alignment.png" class="align" title="align center">
+                        <img src="/img/ICONS/center-text-alignment.png" class="align" title="align center" onclick="alignText('center')">
                     </li>
                     <li>
-                        <img src="/img/ICONS/align-to-right.png" class="align" title="align right">
+                        <img src="/img/ICONS/align-to-right.png" class="align" title="align right" onclick="alignText('right')">
                     </li>
                     <li>|</li>
                     <li>A</li>
